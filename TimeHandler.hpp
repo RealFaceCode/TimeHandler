@@ -1,3 +1,6 @@
+#ifndef TIME_HANDLER_HPP
+#define TIME_HANDLER_HPP
+
 #include <iostream>
 #include <chrono>
 #include <format>
@@ -109,3 +112,4 @@ namespace TimeHandler
                 }
             };
 }
+#endif // TIME_HANDLER_HPP

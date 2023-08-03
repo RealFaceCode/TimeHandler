@@ -4,7 +4,7 @@
 
 namespace TimeHandler
 {
-    std::string getCurrentTime()
+    [[maybe_unused]] std::string getCurrentTime()
     {
         time_t now = time(nullptr);
         tm* currentTime = localtime(&now);
@@ -29,33 +29,33 @@ namespace TimeHandler
                 double mCheckTime;
 
             public:
-                Clock()
+                [[maybe_unused]] Clock()
                 : mBegin(), mMode(ClockMode::none), mCheckTime(0.0)
                 {}
 
-                Clock(const ClockMode& mode, const double& time)
+                [[maybe_unused]] Clock(const ClockMode& mode, const double& time)
                 : mBegin(), mMode(mode), mCheckTime(time)
                 {}
 
-                void start()
+                [[maybe_unused]] void start()
                 {
                     mBegin = std::chrono::high_resolution_clock::now();
                 }
 
-                void start(const ClockMode& mode, const double& time)
+                [[maybe_unused]] void start(const ClockMode& mode, const double& time)
                 {
                     mBegin = std::chrono::high_resolution_clock::now();
                     mMode = mode;
                     mCheckTime = time;
                 }
 
-                void stop()
+                [[maybe_unused]] void stop()
                 {
                     mMode = ClockMode::none;
                     mCheckTime = 0.0;
                 }
 
-                bool check()
+                [[maybe_unused]] bool check()
                 {
                     auto end = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<double> elapsedTime = end - mBegin;
@@ -77,7 +77,7 @@ namespace TimeHandler
                     return false;
                 }
 
-                double getDeltaTime()
+                [[maybe_unused]] double getDeltaTime()
                 {
                     auto end = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<double> elapsedTime = end - mBegin;
@@ -92,16 +92,16 @@ namespace TimeHandler
                 std::chrono::time_point<std::chrono::system_clock> mEnd;
 
             public:
-                Timer()
+                [[maybe_unused]] Timer()
                 : mBegin(), mEnd()
                 {}
 
-                void start()
+                [[maybe_unused]] void start()
                 {
                     mBegin = std::chrono::high_resolution_clock::now();
                 }
 
-                double stop()
+                [[maybe_unused]] double stop()
                 {
                     mEnd = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<double> elapsedTime = mEnd - mBegin;
